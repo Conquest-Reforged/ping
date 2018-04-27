@@ -21,8 +21,8 @@ func main() {
 	flag.Parse()
 
 	router := routing.New()
-	router.Get("/mc/<server>", handler)
-	router.Get("/mc/<server>/<port>", handler)
+	router.Get("/<server>", handler)
+	router.Get("/<server>/<port>", handler)
 	server := fasthttp.Server{
 		Handler: router.HandleRequest,
 		GetOnly: true,
