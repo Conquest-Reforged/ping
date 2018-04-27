@@ -92,8 +92,8 @@ func ping(server string, port int) (string) {
 		return err.Error()
 	}
 
-	// status request
-	_, err = con.Write(status().Bytes())
+	// requestStatus request
+	_, err = con.Write(requestStatus().Bytes())
 	if err != nil {
 		return err.Error()
 	}
@@ -130,8 +130,8 @@ func handshake(server string, port int) *bytes.Buffer {
 	return wrap(&buf)
 }
 
-// status request payload
-func status() *bytes.Buffer {
+// requestStatus request payload
+func requestStatus() *bytes.Buffer {
 	var buf bytes.Buffer
 	buf.WriteByte(0x00) // id
 	return wrap(&buf)
