@@ -48,6 +48,7 @@ func Get(url string) (*Status, error) {
 	if e != nil {
 		return nil, e
 	}
+	defer r.Body.Close()
 	return Decode(r.Body)
 }
 
