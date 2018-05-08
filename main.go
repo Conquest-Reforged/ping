@@ -43,6 +43,7 @@ func main() {
 
 func handler(c *routing.Context) error {
 	c.SetContentType("application/json")
+	c.Response.Header.Set("Access-Control-Allow-Origin", "*")
 	server := c.Param("server")
 	port := parsePort(c.Param("port"))
 	status := ping(server, port)
